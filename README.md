@@ -56,18 +56,6 @@ The only variables you need to set in `.env`:
 
 The database and model settings already have working defaults.
 
-
-
-## How it works
-
-Uploading a file kicks off a background job so the page never freezes. The video/audio
-goes to Whisper for a transcript, the transcript goes to Llama (with a fixed JSON
-format so the results are structured, not free text), and the summary and action
-items get saved to Postgres. The meeting page checks for updates while it runs, so
-you watch it move from Transcribing → Summarizing → done.
-
-
-
 ## Main API endpoints
 
 * `POST /api/auth/register`, `POST /api/auth/login`
@@ -77,13 +65,6 @@ you watch it move from Transcribing → Summarizing → done.
 * `PUT /api/action-items/{id}/status` — mark a task Pending / In progress / Completed
 * `POST /api/meetings/{id}/send-email` — email the summary
 
-
-
-## Good to know
-
-* Keep test clips short and use video/audio — Whisper caps uploads around 25 MB.
-* On the free Render tier the services sleep when idle and the demo database is
-reset from time to time, so the live link is best for a quick look, not permanent storage.
 
 
 
