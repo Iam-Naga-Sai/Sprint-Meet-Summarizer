@@ -42,19 +42,10 @@ The AI calls go through an OpenAI-compatible API, so you can point it at Groq
 You'll need Docker and a free Groq API key from [console.groq.com](https://console.groq.com).
 
 ```bash
-cp .env.example .env      # then paste your Groq key into OPENAI\\\_API\\\_KEY
+cp .env.example .env
+# then paste your Groq key into OPENAI_API_KEY
 docker compose up --build
 ```
-
-The app runs at http://localhost:4200 and the API at http://localhost:8080.
-
-The only variables you need to set in `.env`:
-
-* `OPENAI\\\_API\\\_KEY` — your Groq key (`gsk\\\_...`)
-* `RESEND\\\_API\\\_KEY` — optional, only if you want the email feature ([resend.com](https://resend.com))
-* `JWT\\\_SECRET` — any base64 string (`openssl rand -base64 32`)
-
-The database and model settings already have working defaults.
 
 ## Main API endpoints
 
