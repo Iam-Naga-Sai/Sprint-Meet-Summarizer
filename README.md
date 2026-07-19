@@ -9,19 +9,15 @@ of what actually gets decided in sprint meetings and standups.
 > It's on free hosting, so the first load can take 30–60 seconds to wake up. Sign
 > up, then upload a video/audio file (`.mp3` / `.m4a`) to try it.
 
-
-
 ## What it does
 
 * Transcribes the video/audio into text (Whisper)
 * Writes a summary and pulls out the key discussion points
-* Extracts action items — who owns each task and when it's due
+* Extracts action items, who owns each task and when it's due
 * Flags open follow-up questions
 * Lets you search past meetings by keyword
 * Emails a summary to your team
 * Has user accounts, so your meetings stay private
-
-
 
 ## Tech stack
 
@@ -33,9 +29,7 @@ of what actually gets decided in sprint meetings and standups.
 * **Email:** Resend(HTTP API)
 
 The AI calls go through an OpenAI-compatible API, so you can point it at Groq
-(free) or OpenAI by changing a couple of environment variables — no code changes.
-
-
+(free) or OpenAI by changing a couple of environment variables.
 
 ## Running it
 
@@ -50,11 +44,12 @@ docker compose up --build
 ## Main API endpoints
 
 * `POST /api/auth/register`, `POST /api/auth/login`
-* `POST /api/meetings/upload` — upload a recording
-* `GET /api/meetings` — list your meetings; `GET /api/meetings/{id}` — full detail
-* `GET /api/meetings/search?keyword=` — search titles, summaries, transcripts
-* `PUT /api/action-items/{id}/status` — mark a task Pending / In progress / Completed
-* `POST /api/meetings/{id}/send-email` — email the summary
+* `POST /api/meetings/upload` —>upload a recording
+* `GET /api/meetings` —> list your meetings
+* `GET /api/meetings/{id}` —> full detail
+* `GET /api/meetings/search?keyword=` —> search titles, summaries, transcripts
+* `PUT /api/action-items/{id}/status` —> mark a task Pending / In progress / Completed
+* `POST /api/meetings/{id}/send-email` —> email the summary
 
 
 
